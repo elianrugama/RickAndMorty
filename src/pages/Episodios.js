@@ -101,22 +101,20 @@ export default function Episodios() {
           </button>
           <button
             onClick={uno}
-            color={paginacione === 1 ? "green" : ""}
-            className="page-button active"
+            className={paginacione === 1 ? "page-button active" : "page-button"}
+            
           >
             1
           </button>
           <button
             onClick={dos}
-            className="page-button"
-            color={paginacione === 2 ? "green" : ""}
+            className={paginacione === 2 ? "page-button active" : "page-button"}
           >
             2
           </button>
           <button
             onClick={tres}
-            className="page-button"
-            color={paginacione === 3 ? "green" : ""}
+            className={paginacione === 3 ? "page-button active" : "page-button"}
           >
             3
           </button>

@@ -79,9 +79,9 @@ export default function Episodios() {
       {episodio ?(
         <div className="pagination">
         <button  className="prev-button" onClick={paginasR}>&laquo; Anterior</button>
-        <button onClick={uno}color={paginacion===1 ?"green":""} className="page-button active">1</button>
-        <button onClick={dos}className="page-button"color={paginacion===2 ?"green":""}>2</button>
-        <button onClick={tres} className="page-button" color={paginacion===3 ?"green":""}>{paginacion}</button>
+        <button onClick={uno}className={paginacion===1 ?"page-button active":"page-butto"}>1</button>
+        <button onClick={dos}className={paginacion===2 ?"page-button active":"page-butto"}>2</button>
+        <button onClick={tres} className={paginacion===3 ?"page-button active":"page-butto"}>{paginacion}</button>
         
         <button class="next-button"  onClick={paginas}>Siguiente &raquo;</button>
       </div>
