@@ -1,34 +1,45 @@
-import imageRickMorty from "./img/rick-morty.png";
+
 import "./App.css";
-import { useState } from "react";
-import Characters from "./components/Characters";
+import { useState, useEffect } from "react";
+
+
+import Welcome from "./components/Welcome";
+import Hooks from "./components/hooks";
+import Inicio from "./components/hookx";
+import Contact  from "./pages/Contact";
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import Profile from "./pages/Profile";
+import Personajes from "./pages/Personajes";
+import Home from "./pages/home";
+import Episodios from "./pages/Episodios";
+
 function App() {
-  const [characters, setCharacters] = useState(null);
+  const [pag, setPag] = useState(window.location.pathname);
+  console.log(pag);
+ 
+  
+ useEffect(() => {
+    console.log("xd");
+    setPag(window.location.pathname)
+ },[]);
 
-  console.log(characters);
 
-  const resApi = async () => {
-    const api = await fetch("https://rickandmortyapi.com/api/character");
-    const characterApi = await api.json();
-    setCharacters(characterApi.results);
-    console.log(characterApi);
-  };
   return (
     <div className="App">
       <header className="App-header">
-        <h1 className="title">Rick and Morty</h1>
-
-        {characters ? (
-          <Characters characters={characters} setCharacters={setCharacters}/>
-        ) : (
-          <>
-            <img src={imageRickMorty} alt="" className="img-home"></img>
-            <button onClick={resApi} className="btn-search">
-              Buscar personajes
-            </button>
-          </>
-        )}
+        
+        <Router>
+          
+          <Routes>
+          <Route path="/" element={<Home/>}/>
+            <Route path="/contact" element={<Contact/>}/>
+            <Route path="/profile/:name" element={<Profile/>}/>
+            <Route path="/personajes" element={<Personajes/>}/>
+            <Route path="/episodios" element={<Episodios/>}/>
+          </Routes>
+        </Router>
       </header>
+      
     </div>
   );
 }

@@ -1,17 +1,16 @@
+import { Link } from "react-router-dom";
+
 export default function Characters(props) {
   
   const { characters,setCharacters } = props;
-  const resetCharacters = ()=>{
-    console.log("reseteando");
-    setCharacters(null);
-  }
+  
   
   return (
     <div className="characters">
 
       <h1>personajes</h1>
       
-      <span className="back-home" onClick={resetCharacters}>volver a home</span>
+      <Link className="back-home" to="/" >Volver a home</Link>
       <div className="container-characters">
         {characters.map((character, index) => (
           <div className="character-container" key={index}>
@@ -41,8 +40,11 @@ export default function Characters(props) {
 
           </div>
         ))}
+      <div>
+
       </div>
-      <span className="back-home" onClick={resetCharacters}>Volver a home</span>
+      </div>
+      <Link className="back-home" to="/" >Volver a home</Link>
     </div>
   );
 }
